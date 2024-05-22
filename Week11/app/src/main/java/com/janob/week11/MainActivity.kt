@@ -19,6 +19,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         title = "배경색 바꾸기"
+
+        getSupportActionBar()?.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()?.setIcon(R.drawable.doglogo)
+
         baseLayout = findViewById<LinearLayout>(R.id.baseLayout)
         button1 = findViewById<Button>(R.id.button1)
     }

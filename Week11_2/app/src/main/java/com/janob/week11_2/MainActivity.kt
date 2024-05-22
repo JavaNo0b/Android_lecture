@@ -22,6 +22,9 @@ class MainActivity : AppCompatActivity() {
 
         title = "배경색 바꾸기 (컨택스트 메뉴)"
 
+        getSupportActionBar()?.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()?.setIcon(R.drawable.androidlogo)
+
         baseLayout = findViewById<LinearLayout>(R.id.baseLayout)
             as LinearLayout
 
