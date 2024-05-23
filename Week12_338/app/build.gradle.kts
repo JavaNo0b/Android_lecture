@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.janob.week12_327"
+    namespace = "com.janob.week12_338"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.janob.week12_327"
+        applicationId = "com.janob.week12_338"
         minSdk = 29
         targetSdk = 33
         versionCode = 1
