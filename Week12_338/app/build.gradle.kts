@@ -39,7 +39,11 @@ dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
+<<<<<<< HEAD
     implementation("com.google.android.material:material:1.8.0")
+=======
+    implementation("com.google.android.material:material:1.12.0")
+>>>>>>> 7a11cb3c1d3f68dd77ff758bb0380e56f039e703
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
