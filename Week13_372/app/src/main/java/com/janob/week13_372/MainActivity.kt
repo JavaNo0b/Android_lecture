@@ -3,6 +3,9 @@ package com.janob.week13_372
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
+import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -23,10 +26,17 @@ class MainActivity : AppCompatActivity() {
         var sX = 1f
         var sY = 1f
         var angle = 0f
+        var color = 1f
+        var satur = 1f
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        title = "미니 포토샵"
+
+        getSupportActionBar()?.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()?.setIcon(R.drawable.androidlogo)
 
         var pictureLayout = findViewById<LinearLayout>(R.id.pictureLayout)
         graphicView = MyGraphicView(this)
@@ -48,9 +58,28 @@ class MainActivity : AppCompatActivity() {
             graphicView.invalidate()
         }
 
-        ibRotate = findViewById(R.id.ibReroad)
+        ibRotate = findViewById(R.id.ibRotate)
         ibRotate.setOnClickListener{
             angle = angle + 20
+            graphicView.invalidate()
+        }
+
+        ibBright = findViewById(R.id.ibBright)
+        ibBright.setOnClickListener{
+            color = color + 0.2f
+            graphicView.invalidate()
+        }
+
+        ibDark = findViewById(R.id.ibDark)
+        ibDark.setOnClickListener{
+            color = color - 0.2f
+            graphicView.invalidate()
+        }
+
+        ibGray = findViewById(R.id.ibGray)
+        ibGray.setOnClickListener{
+            if(satur == 0f) satur = 1f
+            else satur = 0f
             graphicView.invalidate()
         }
     }
@@ -61,13 +90,25 @@ class MainActivity : AppCompatActivity() {
 
             var cenX = this.width / 2f
             var cenY = this.height / 2f
+
             canvas.scale(sX,sY,cenX,cenY)
             canvas.rotate(angle,cenX,cenY)
 
-            var picture = BitmapFactory.decodeResource(resources, R.drawable.doglogo)
+            val paint = Paint()
+            val array = floatArrayOf(
+                color, 0f, 0f, 0f, 0f,
+                0f, color, 0f, 0f, 0f,
+                0f, 0f, color, 0f, 0f,
+                0f, 0f, 0f, 1f, 0f
+            )
+            val cm = ColorMatrix(array)
+            if (satur == 0f) cm.setSaturation(satur)
+            paint.colorFilter = ColorMatrixColorFilter(cm)
+
+            var picture = BitmapFactory.decodeResource(resources, R.drawable.album_1)
             var picX = (this.width - picture.width) / 2f
             var picY = (this.height - picture.height) / 2f
-            canvas.drawBitmap(picture,picX,picY,null)
+            canvas.drawBitmap(picture,picX,picY,paint)
 
             picture.recycle()
         }

@@ -16,37 +16,43 @@
 
         <ImageButton
             android:id="@+id/ibZoomin"
-            android:src="@drawable/doglogo"
+            android:src="@drawable/zoom_in"
+            android:background="@null"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"/>
         <ImageButton
             android:id="@+id/ibZoomout"
-            android:src="@drawable/doglogo"
+            android:src="@drawable/zoom_out"
+            android:background="@null"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"/>
         <ImageButton
-            android:id="@+id/ibReroad"
-            android:src="@drawable/doglogo"
+            android:id="@+id/ibRotate"
+            android:src="@drawable/rotate"
+            android:background="@null"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"/>
         <ImageButton
-            android:id="@+id/ibBrightup"
-            android:src="@drawable/doglogo"
+            android:id="@+id/ibBright"
+            android:src="@drawable/brightness_plus"
+            android:background="@null"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"/>
         <ImageButton
-            android:id="@+id/ibBrightdown"
-            android:src="@drawable/doglogo"
+            android:id="@+id/ibDark"
+            android:src="@drawable/brightness_min"
+            android:background="@null"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="10dp" />
         <ImageButton
             android:id="@+id/ibGray"
-            android:src="@drawable/doglogo"
+            android:src="@drawable/satur"
+            android:background="@null"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="10dp"/>
